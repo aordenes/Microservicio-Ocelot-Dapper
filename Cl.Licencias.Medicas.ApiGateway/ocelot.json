@@ -1,0 +1,134 @@
+{
+  "Routes": [
+
+    {
+      "DownstreamPathTemplate": "/api/Autenticar/authenticatejwt",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "4880"
+        }
+      ],
+      "UpstreamPathTemplate": "/autenticar/authenticatejwt",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Autenticar/getuserbyjwt",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "4880"
+        }
+      ],
+      "UpstreamPathTemplate": "/autenticar/getuserbyjwt",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/UsuariosLicencias/getlistusuarios",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "4881"
+        }
+      ],
+      "UpstreamPathTemplate": "/usuarioslicencias/getlistusuarios",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/UsuariosLicencias/getusuario/{idUser}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "4881"
+        }
+      ],
+      "UpstreamPathTemplate": "/usuarioslicencias/getusuario/{idUser}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/UsuariosLicencias/deleteUsuario/{idUsuario}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "4881"
+        }
+      ],
+      "UpstreamPathTemplate": "/usuarioslicencias/deleteUsuario/{idUsuario}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/UsuariosLicencias/AgregaUsuario",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "4881"
+        }
+      ],
+      "UpstreamPathTemplate": "/usuarioslicencias/agregausuario",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/UsuariosLicencias/AgregaListaUsuarios",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "4881"
+        }
+      ],
+      "UpstreamPathTemplate": "/usuarioslicencias/agregalistausuarios",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/UsuariosLicencias/UpdateUsuario",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "4881"
+        }
+      ],
+      "UpstreamPathTemplate": "/usuarioslicencias/updateusuario",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ]
+
+}
+   
