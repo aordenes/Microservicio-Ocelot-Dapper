@@ -1,9 +1,9 @@
-﻿using Cl.Licencias.Medicas.Aplicacion.Contratos;
-using Cl.Licencias.Medicas.Aplicacion.Dto.Request;
-using Cl.Licencias.Medicas.Aplicacion.Dto.Response;
-using Cl.Licencias.Medicas.Dominio.Entidades.AccesosApi;
-using Cl.Licencias.Medicas.Transversal.Log;
-using Cl.Licencias.Medicas.Transversal.Seguridad;
+﻿using Cl.Aplicacion.Contratos;
+using Cl.Aplicacion.Dto.Request;
+using Cl.Aplicacion.Dto.Response;
+using Cl.Dominio.Entidades.AccesosApi;
+using Cl.Transversal.Log;
+using Cl.Transversal.Seguridad;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Cl.Dominio</RootNamespace>
+    <AssemblyName>Cl.Dominio</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cl.Aplicacion\Cl.Aplicacion.csproj" />
+    <ProjectReference Include="..\Cl.Dal\Cl.Dal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Recursos\SpRecursosAccesos.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SpRecursosAccesos.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Recursos\SpRecursoUsuarioLicencias.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SpRecursoUsuarioLicencias.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Recursos\SpRecursosAccesos.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SpRecursosAccesos.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Recursos\SpRecursoUsuarioLicencias.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SpRecursoUsuarioLicencias.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

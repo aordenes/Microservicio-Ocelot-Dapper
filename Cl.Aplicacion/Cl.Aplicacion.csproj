@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Cl.Aplicacion</AssemblyName>
+    <RootNamespace>Cl.Aplicacion</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Servicios\" />
+  </ItemGroup>
+
+</Project>

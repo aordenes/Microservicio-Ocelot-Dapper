@@ -19,13 +19,13 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace Cl.Accesos.Api
+namespace Cl.Usuarios.Api
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
-            //Segmento para tomar el alrchivo de configuracion Nlog 
+            //Segmento para tomar el archivo de configuracion Nlog 
             LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/Nlog.config"));
 
             Configuration = configuration;
@@ -36,20 +36,16 @@ namespace Cl.Accesos.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.Configure<ConexionConfiguracion>(
             option => {
                 option.DefaultConnection = Configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
             }
             );
-            
             services.AddTransient<IFactoryConnection, FactoryConnection>();
             services.AddScoped(typeof(IOracleRepository<>), typeof(OracleRepository<>));
-            services.AddScoped(typeof(IAccesoContrato<>), typeof(AccesoContrato<>));
+            services.AddScoped(typeof(IPersonaLicenciaContrato<>), typeof(PersonaLicenciaContrato<>));
             services.AddSingleton<ILoggerManager, LoggerManager>();
 
-            services.AddControllers();
-           
 
             services.AddAuthentication(options =>
             {
@@ -71,9 +67,10 @@ namespace Cl.Accesos.Api
                 };
             });
 
+            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cl.Minsal.Accesos.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cl.Minsal.Licencias.Medicas.Usuarios.Api", Version = "v1" });
             });
 
             services.AddCors(opcion =>
@@ -83,10 +80,6 @@ namespace Cl.Accesos.Api
                     regla.AllowAnyHeader().AllowAnyMethod().WithOrigins("*").AllowAnyOrigin();//si es publico le doy *, si no le doy acceso a la url que yo quiero, asi la spersona spueden acceder a tu api
                 });
             });
-
-           
-            
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -96,11 +89,11 @@ namespace Cl.Accesos.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cl.Minsal.Accesos.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cl.Minsal.Licencias.Medicas.Usuarios.Api v1"));
             }
 
             //tener el mismo cors que se utiliza en la configuracion de la regla
-            //estamso haciendo que los metodos sean expuestos de manera publica por el momento
+            //estamos haciendo que los metodos sean expuestos de manera publica por el momento.
             app.UseCors("CorsRule");
 
             app.UseRouting();
@@ -114,6 +107,7 @@ namespace Cl.Accesos.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                //endpoints.MapHub<BroadcastHub>("/broadcastHub");
             });
         }
     }
